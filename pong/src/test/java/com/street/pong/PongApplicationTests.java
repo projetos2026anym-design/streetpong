@@ -1,13 +1,14 @@
 package com.street.pong;
 
-import org.junit.jupiter.api.Test;
+import jakarta.transaction.Transactional;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.testng.annotations.Test;
 
 @SpringBootTest
-class PongApplicationTests {
+@Transactional
+public class PongApplicationTests {
 
 	@Test
-	void contextLoads() {
+	public void contextLoads() {
 	}
-
 }
