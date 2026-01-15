@@ -1,5 +1,6 @@
 package com.street.pong.model.cpf;
 
+import com.street.pong.model.exceptions.ConditionFailedException;
 import jakarta.persistence.Embeddable;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -12,16 +13,16 @@ public class Cpf {
 
     private String numero;
 
-    public Cpf(CpfBuilder cpfBuilder) {
-        if (!isValido(cpfBuilder.getNumero())) {
-            throw new IllegalArgumentException("CPF inválido");
-        }
-        this.numero = cpfBuilder.getNumero();
-    }
-
     private boolean isValido(String cpf) {
         cpf = cpf.replaceAll("\\D", "");
         return cpf.length() == 11;
+    }
+
+    public Cpf(CpfBuilder cpfBuilder) {
+        if (!isValido(cpfBuilder.getNumero())) {
+            throw new ConditionFailedException("CPF inválido");
+        }
+        this.numero = cpfBuilder.getNumero();
     }
 }
 

@@ -14,14 +14,6 @@ public class Email {
 
     private String endereco;
 
-
-    public Email(String endereco) {
-        if (!isValido(endereco)) {
-            throw new IllegalArgumentException("E-mail inválido");
-        }
-        this.endereco = endereco;
-    }
-
     private boolean isValido(String email) {
         return Pattern
                 .compile("^[A-Za-z0-9+_.-]+@(.+)$")
@@ -29,5 +21,10 @@ public class Email {
                 .matches();
     }
 
-
+    public Email(EmailBuilder emailBuilder) {
+        if (!isValido(endereco)) {
+            throw new IllegalArgumentException("E-mail inválido");
+        }
+        this.endereco = emailBuilder.getEndereco();
+    }
 }
