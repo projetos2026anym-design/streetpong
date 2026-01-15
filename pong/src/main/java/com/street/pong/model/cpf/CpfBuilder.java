@@ -1,5 +1,6 @@
 package com.street.pong.model.cpf;
 
+import com.street.pong.model.exceptions.ConditionFailedException;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,7 +11,7 @@ public class CpfBuilder {
 
     public Cpf toBuild() {
         if (this.numero == null) {
-            throw new RuntimeException("Cpf sem digitos");
+            throw new ConditionFailedException("Cpf sem digitos");
         }
         return new Cpf(this);
     }

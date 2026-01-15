@@ -1,7 +1,10 @@
 package com.street.pong.model.endereco;
 
 import com.street.pong.model.abstract_entities.UuidEntity;
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -38,16 +41,23 @@ public class Endereco extends UuidEntity {
 
     private String complemento;
 
-    public Endereco(String logradouro, String numero, String bairro, String cidade, String estado, String cep, String complemento) {
-        if (logradouro == null || numero == null || bairro == null || cidade == null || estado == null || cep == null) {
-            throw new IllegalArgumentException("Todos os campos obrigatórios devem ser preenchidos");
-        }
-        this.logradouro = logradouro;
-        this.numero = numero;
-        this.bairro = bairro;
-        this.cidade = cidade;
-        this.estado = estado;
-        this.cep = cep;
-        this.complemento = complemento;
+//    public Endereco(String logradouro, String numero, String bairro, String cidade, String estado, String cep, String complemento) {
+//        this.logradouro = logradouro;
+//        this.numero = numero;
+//        this.bairro = bairro;
+//        this.cidade = cidade;    Não sei se vai usar esse parceiro já que vamos usar o builder, então não sei se faz sentido usar esse cara, perdão Prof
+//        this.estado = estado;
+//        this.cep = cep;
+//        this.complemento = complemento;
+//    }
+
+    public Endereco(EnderecoBuilder enderecoBuilder) {
+        this.logradouro = enderecoBuilder.getLogradouro();
+        this.numero = enderecoBuilder.getNumero();
+        this.bairro = enderecoBuilder.getBairro();
+        this.cidade = enderecoBuilder.getCidade();
+        this.estado = enderecoBuilder.getEstado();
+        this.cep = enderecoBuilder.getComplemento();
+        this.complemento = enderecoBuilder.getComplemento();
     }
 }
