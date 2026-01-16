@@ -60,4 +60,8 @@ public class Endereco extends UuidEntity {
         this.cep = enderecoBuilder.getComplemento();
         this.complemento = enderecoBuilder.getComplemento();
     }
+
+    public EnderecoBuilder toBuilder() {
+        return new EnderecoBuilder(this);
+    }
 }

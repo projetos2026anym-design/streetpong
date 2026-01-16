@@ -4,9 +4,6 @@ import com.street.pong.model.cpf.Cpf;
 import com.street.pong.model.email.Email;
 import com.street.pong.model.endereco.Endereco;
 import com.street.pong.model.telefone.Telefone;
-import jakarta.persistence.Embedded;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
 import lombok.Getter;
 import lombok.Setter;
 
