@@ -22,10 +22,18 @@ public class EnderecoService extends SuperService<Endereco, UUID> {
 
     public EnderecoTO createEndereco(EnderecoTO enderecoTO) {
         EnderecoBuilder enderecoBuilder = new EnderecoBuilder();
+
         enderecoBuilder.setLogradouro(enderecoTO.logradouro());
+        enderecoBuilder.setNumero(enderecoTO.numero());
+        enderecoBuilder.setBairro(enderecoTO.bairro());
+        enderecoBuilder.setCidade(enderecoTO.cidade());
+        enderecoBuilder.setEstado(enderecoTO.estado());
+        enderecoBuilder.setCep(enderecoTO.cep());
+        enderecoBuilder.setComplemento(enderecoTO.complemento());
+
         Endereco build = enderecoBuilder.toBuild();
-        build.toBuilder();
-        return null;
+//        enderecoRepository.save(build)
+        return EnderecoTO.of(build);
     }
 
     public EnderecoTO updateEndereco(EnderecoTO enderecoTO) {
@@ -40,7 +48,7 @@ public class EnderecoService extends SuperService<Endereco, UUID> {
         builder.setCidade(ofNullable(enderecoTO.cidade()).orElse(builder.getCidade()));
         builder.setEstado(ofNullable(enderecoTO.estado()).orElse(builder.getEstado()));
         builder.setCep(ofNullable(enderecoTO.cep()).orElse(builder.getCep()));
-        builder.setComplemento(ofNullable(enderecoTO.complemento()).orElse(builder.getComplemento()));
+        builder.setComplemento(enderecoTO.complemento());
         Endereco save = enderecoRepository.save(builder.toBuild());
         return EnderecoTO.of(save);
     }
