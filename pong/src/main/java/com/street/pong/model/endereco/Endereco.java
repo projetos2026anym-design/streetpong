@@ -41,16 +41,6 @@ public class Endereco extends UuidEntity {
 
     private String complemento;
 
-//    public Endereco(String logradouro, String numero, String bairro, String cidade, String estado, String cep, String complemento) {
-//        this.logradouro = logradouro;
-//        this.numero = numero;
-//        this.bairro = bairro;
-//        this.cidade = cidade;    Não sei se vai usar esse parceiro já que vamos usar o builder, então não sei se faz sentido usar esse cara, perdão Prof
-//        this.estado = estado;
-//        this.cep = cep;
-//        this.complemento = complemento;
-//    }
-
     public Endereco(EnderecoBuilder enderecoBuilder) {
         this.logradouro = enderecoBuilder.getLogradouro();
         this.numero = enderecoBuilder.getNumero();
@@ -59,5 +49,9 @@ public class Endereco extends UuidEntity {
         this.estado = enderecoBuilder.getEstado();
         this.cep = enderecoBuilder.getComplemento();
         this.complemento = enderecoBuilder.getComplemento();
+    }
+
+    public EnderecoBuilder toBuilder() {
+        return new EnderecoBuilder(this);
     }
 }
