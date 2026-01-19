@@ -4,7 +4,7 @@ import com.street.pong.model.endereco.EnderecoTO;
 
 import java.util.UUID;
 
-public class EnderecoDataProvider {
+public class EnderecoTODataProvider {
 
     public static EnderecoTO createEnderecoTO() {
         return new EnderecoTO(

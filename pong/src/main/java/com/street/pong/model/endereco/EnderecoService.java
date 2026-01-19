@@ -16,11 +16,19 @@ public class EnderecoService extends SuperService<Endereco, UUID> {
     @Autowired
     private EnderecoRepository enderecoRepository;
 
+    @Autowired
+    private EnderecoValidator enderecoValidator;
+
     public EnderecoService(EnderecoRepository enderecoRepository) {
         super(enderecoRepository);
     }
 
+//    public Endereco findByCidadeAndCepAndEstado(String cidade, String cep, String estado) {
+//        return enderecoRepository.findedOrCreateEndereco(cidade, cep, estado);
+//    }
+
     public EnderecoTO createEndereco(EnderecoTO enderecoTO) {
+        enderecoValidator.validateEndereco(enderecoTO);
         EnderecoBuilder enderecoBuilder = new EnderecoBuilder();
 
         enderecoBuilder.setLogradouro(enderecoTO.logradouro());

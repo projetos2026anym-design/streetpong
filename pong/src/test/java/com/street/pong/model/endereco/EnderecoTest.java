@@ -1,6 +1,6 @@
 package com.street.pong.model.endereco;
 
-import com.street.pong.dataproviders.EnderecoDataProvider;
+import com.street.pong.dataproviders.EnderecoTODataProvider;
 import org.assertj.core.api.SoftAssertions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,7 +17,7 @@ public class EnderecoTest extends AbstractTestNGSpringContextTests {
 
     @Test
     public void createEndereco() {
-        EnderecoTO enderecoTO = EnderecoDataProvider.createEnderecoTO();
+        EnderecoTO enderecoTO = EnderecoTODataProvider.createEnderecoTO();
 
         EnderecoTO enderecoCreated = enderecoService.createEndereco(enderecoTO);
 
@@ -30,7 +30,7 @@ public class EnderecoTest extends AbstractTestNGSpringContextTests {
 
     @Test
     public void updateEndereco() {
-        EnderecoTO enderecoTO = EnderecoDataProvider.createEnderecoTO();
+        EnderecoTO enderecoTO = EnderecoTODataProvider.createEnderecoTO();
 
         EnderecoTO enderecoCreated = enderecoService.createEndereco(enderecoTO);
 

@@ -44,4 +44,8 @@ public class Pessoa extends UuidEntity {
         this.telefone = pessoaBuilder.getTelefone();
     }
 
+
+    public PessoaBuilder toBuilder() {
+        return new PessoaBuilder(this);
+    }
 }

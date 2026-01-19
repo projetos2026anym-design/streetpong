@@ -7,4 +7,5 @@ import java.util.UUID;
 
 @Repository
 public interface EnderecoRepository extends JpaRepository<Endereco, UUID> {
+    Endereco findedOrCreateEndereco(String cidade, String estado, String cep);
 }
