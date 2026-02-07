@@ -1,5 +1,6 @@
 package com.street.pong.model.email;
 
+import com.street.pong.model.exceptions.ConditionFailedException;
 import jakarta.persistence.Embeddable;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -23,7 +24,7 @@ public class Email {
 
     public Email(EmailBuilder emailBuilder) {
         if (!isValido(endereco)) {
-            throw new IllegalArgumentException("E-mail inválido");
+            throw new ConditionFailedException("E-mail inválido");
         }
         this.endereco = emailBuilder.getEndereco();
     }
