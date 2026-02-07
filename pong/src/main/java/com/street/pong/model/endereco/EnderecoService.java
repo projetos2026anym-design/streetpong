@@ -23,9 +23,9 @@ public class EnderecoService extends SuperService<Endereco, UUID> {
         super(enderecoRepository);
     }
 
-//    public Endereco findByCidadeAndCepAndEstado(String cidade, String cep, String estado) {
-//        return enderecoRepository.findedOrCreateEndereco(cidade, cep, estado);
-//    }
+    public Endereco findByCidadeAndCepAndEstado(String cidade, String cep, String estado) {
+        return enderecoRepository.findByCidadeCepEstado(cidade, cep, estado);
+    }
 
     public EnderecoTO createEndereco(EnderecoTO enderecoTO) {
         enderecoValidator.validateEndereco(enderecoTO);
